@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="903.0" prefWidth="1094.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uiManager.Mycontroller">
+   <children>
+      <Button id="searchButton" layoutX="449.0" layoutY="35.0" mnemonicParsing="false" onAction="#searchProgram" prefHeight="23.0" prefWidth="120.0" text="search" />
+        <TextField fx:id="searchTextField" layoutX="14.0" layoutY="35.0" prefHeight="30.0" prefWidth="423.0" />
+      <TableView fx:id="resultTable" layoutX="14.0" layoutY="75.0" onMouseClicked="#showInfo" prefHeight="476.0" prefWidth="1067.0">
+        <columns>
+        <TableColumn fx:id="Id" prefWidth="0.0" text="" />
+          <TableColumn fx:id="country" prefWidth="82.0" text="country" />
+          <TableColumn fx:id="university" prefWidth="219.0" text="university" />
+            <TableColumn fx:id="school" minWidth="0.0" prefWidth="368.0" text="school" />
+            <TableColumn fx:id="programName" minWidth="0.0" prefWidth="227.0" text="programName" />
+            <TableColumn fx:id="degree" prefWidth="170.0" text="degree" />
+        </columns>
+      </TableView>
+      <Label fx:id="lable" layoutX="17.0" layoutY="567.0" prefHeight="297.0" prefWidth="1060.0" text="" />
+      
+   </children>
+</AnchorPane>

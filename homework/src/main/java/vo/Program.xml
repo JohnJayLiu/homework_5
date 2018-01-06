@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dataManager.DataBaseManager">
+<resultMap type="Program" id="programList">
+<result property="Id" column="Id" />
+<result property="country" column="country" />
+<result property="university" column="university" />
+<result property="school" column="school" />
+<result property="program_name" column="program_name" />
+<result property="homepage" column="homepage" />
+<result property="location" column="location" />
+<result property="email" column="email" />
+<result property="phone_number" column="phone_number" />
+<result property="degree" column="degree" />
+<result property="deadline_with_aid" column="deadline_with_aid" />
+<result property="deadline_without_aid" column="deadline_without_aid" />
+</resultMap>
+	<insert id="insertProgram" parameterType="Program">
+	insert into program (Id, country, university,school,program_name,homepage,location,email,phone_number,degree,deadline_with_aid,deadline_without_aid)
+        VALUES(#{Id}, #{country}, #{university}, #{school},#{program_name},#{homepage},#{location},#{email},#{phone_number},#{degree},#{deadline_with_aid},#{deadline_without_aid})
+	</insert>
+	<update id="updataProgram" parameterType="Program">
+	UPDATE program
+        SET
+        Id = #{Id}
+        country = #{country},
+        university = #{university},
+        school = #{school} ,
+        program_name = #{program_name},
+        homepage = #{homepage},
+        location = #{location},
+        email = #{email},
+        phone_number = #{phone_number},
+        degree = #{degree},
+        deadline_with_aid = #{deadline_with_aid},
+        deadline_without_aid =#{deadline_without_aid}
+        WHERE
+        Id = #{Id}
+	</update>
+	
+	<select id="selectProgram" resultMap="programList" parameterType="java.lang.String">
+	 <bind name="pattern" value="'%' + _parameter + '%'" />
+	select distinct * from program where country like #{pattern} or university like #{pattern} or school like #{pattern} or program_name like #{pattern} 
+	</select>
+	<delete id="deleteProgram" parameterType="java.lang.String">
+	delete from program where Id = #{Id}
+	</delete>
+	</mapper>
